@@ -5,7 +5,7 @@ class CfgVehicles {
         class ACE_SelfActions {
             class ADDON {
                 displayName = CSTRING(Gestures);
-                condition = QUOTE(canStand _target && GVAR(ReloadMutex));
+                condition = QUOTE((canStand _target) && GVAR(ReloadMutex) && {GVAR(showOnInteractionMenu) == 2});
                 statement = "";
                 showDisabled = 1;
                 priority = 3.5;
@@ -127,7 +127,7 @@ class CfgVehicles {
                 };
 
                 class class GVAR(Hi) {
-                    displayName = CSTRING(Gestures_Hi);
+                    displayName = CSTRING(Hi);
                     condition = QUOTE(canStand _target);
                     statement = QUOTE(_target playActionNow ([ARR_3('gestureHi','gestureHiB','gestureHiC')] select floor random 3););
                     showDisabled = 1;
